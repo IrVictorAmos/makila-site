@@ -1,0 +1,53 @@
+<section class="section flush-top" id="fonctionnalites" aria-labelledby="features-title">
+  <div class="container">
+    <header class="section-head" appReveal>
+      <p class="eyebrow">Fonctionnalités</p>
+      <h2 id="features-title">Tout le parcours du don, dans une seule application.</h2>
+      <p>Pour les donneurs comme pour les équipes soignantes, chaque écran a été pensé pour la réalité des villes congolaises.</p>
+    </header>
+
+    <div class="bento">
+      <article class="tile tile--hero" appReveal>
+        <div class="tile-copy">
+          <span class="icon-tile"><app-icon name="siren" /></span>
+          <h3>Les urgences près de chez vous</h3>
+          <p>Demandes classées par niveau d'urgence, avec le groupe, le nombre de poches, l'heure limite et les donneurs déjà en route. Compatible avec votre groupe ? Makila vous le dit d'un coup d'œil.</p>
+        </div>
+        <app-screen-crop class="crop" shot="requests" alt="Liste des demandes de sang urgentes dans Makila" />
+      </article>
+
+      <article class="tile tile--card" appReveal="100">
+        <div class="tile-copy">
+          <span class="icon-tile"><app-icon name="qr-code" /></span>
+          <h3>Votre carte de donneur</h3>
+          <p>Un QR code personnel, scanné à chaque don. Partagez votre engagement pour inviter vos proches.</p>
+        </div>
+        <app-screen-crop class="crop" shot="card" alt="Carte de donneur Makila avec QR code" />
+      </article>
+
+      @for (f of small; track f.title; let i = $index) {
+        <article class="tile tile--small" [appReveal]="i * 80">
+          <span class="icon-tile"><app-icon [name]="f.icon" /></span>
+          <h3>{{ f.title }}</h3>
+          <p>{{ f.text }}</p>
+        </article>
+      }
+
+      @for (f of wide; track f.title; let i = $index) {
+        <article class="tile tile--wide" [appReveal]="i * 80">
+          <span class="icon-tile"><app-icon [name]="f.icon" /></span>
+          <div>
+            <h3>{{ f.title }}</h3>
+            <p>{{ f.text }}</p>
+          </div>
+        </article>
+      }
+    </div>
+
+    <ul class="extras" role="list" appReveal>
+      @for (x of extras; track x.label) {
+        <li><app-icon [name]="x.icon" />{{ x.label }}</li>
+      }
+    </ul>
+  </div>
+</section>

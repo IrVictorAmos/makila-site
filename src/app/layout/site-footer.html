@@ -1,0 +1,49 @@
+<footer class="footer">
+  <div class="container">
+    <div class="top">
+      <div class="about">
+        <a class="brand" routerLink="/" aria-label="Makila, accueil">
+          <app-logo [size]="40" />
+          <span class="wordmark">Makila</span>
+        </a>
+        <p>Le don de sang qui sauve, partout en République démocratique du Congo. <span lang="ln">Makila</span> signifie «&nbsp;sang&nbsp;» en lingala.</p>
+      </div>
+
+      <nav class="cols" aria-label="Pied de page">
+        <div>
+          <h2>Application</h2>
+          <ul role="list">
+            <li><a routerLink="/" fragment="fonctionnement">Fonctionnement</a></li>
+            <li><a routerLink="/" fragment="fonctionnalites">Fonctionnalités</a></li>
+            <li><a routerLink="/" fragment="eligibilite">Puis-je donner&nbsp;?</a></li>
+            <li><a routerLink="/" fragment="telecharger">Télécharger</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Établissements</h2>
+          <ul role="list">
+            <li><a routerLink="/" fragment="etablissements">Hôpitaux et centres</a></li>
+            <li><a routerLink="/" fragment="confiance">Vérification</a></li>
+            <li><a routerLink="/" fragment="faq">Questions fréquentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Informations</h2>
+          <ul role="list">
+            <li><a routerLink="/confidentialite">Confidentialité</a></li>
+            <li><a routerLink="/conditions">Conditions d'utilisation</a></li>
+            <li><a routerLink="/suppression-compte">Supprimer mon compte</a></li>
+            @if (contactHref) {
+              <li><a [href]="contactHref">{{ site.contactEmail }}</a></li>
+            }
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="bottom">
+      <p>© {{ year }} Makila. Fait en RDC, pour la RDC.</p>
+      <p>Makila ne remplace pas l'avis du personnel médical, qui décide toujours sur place.</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,76 @@
+.compat { background: var(--sunken); }
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-8);
+  align-items: center;
+}
+.copy { display: grid; gap: var(--space-5); }
+h2 { font-size: var(--step-4); }
+.copy > p:not(.eyebrow) { color: var(--ink-2); font-size: var(--step-1); line-height: 1.5; }
+.copy > p.hint { font-size: 0.95rem; color: var(--ink-3); }
+.picker {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-2);
+  max-inline-size: 440px;
+}
+.g {
+  min-block-size: 56px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--line-strong);
+  background: var(--surface-raised);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  transition: background-color var(--dur-1) var(--ease-out), color var(--dur-1) var(--ease-out),
+    transform var(--dur-1) var(--ease-out), border-color var(--dur-1) var(--ease-out);
+}
+.g:hover { border-color: var(--brand); }
+.g:active { transform: scale(0.97); }
+.g.on { background: var(--brand); border-color: var(--brand); color: var(--on-brand); box-shadow: var(--shadow-1); }
+
+.panels {
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-6);
+  border-radius: var(--r-xl);
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-2);
+}
+.panel { display: grid; gap: var(--space-3); }
+.panel h3 { font-size: var(--step-1); }
+.sel { color: var(--brand-text); }
+.tokens { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px; }
+.tokens li {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-radius: var(--r-sm);
+  border: 1px dashed var(--line-strong);
+  color: var(--ink-3);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(0.78rem, 0.6rem + 0.5vw, 1rem);
+  transition: background-color var(--dur-2) var(--ease-out), color var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out);
+}
+.tokens li.yes { background: var(--brand); border: 1px solid var(--brand); color: var(--on-brand); }
+.tokens--in li.yes { background: var(--brand-soft); border-color: var(--brand-line); color: var(--brand-text); }
+.note {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--r-md);
+  background: var(--brand-soft);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.fine { color: var(--ink-3); font-size: var(--step--1); }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 480px) {
+  .panels { padding: var(--space-4); }
+  .tokens { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}

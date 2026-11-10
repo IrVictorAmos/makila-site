@@ -1,0 +1,86 @@
+:host {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 50;
+  display: block;
+  background: color-mix(in oklch, var(--paper) 0%, transparent);
+  border-block-end: 1px solid transparent;
+  transition: background-color var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out);
+}
+:host(.is-scrolled), :host(.is-open) {
+  background: var(--paper);
+  border-block-end-color: var(--line);
+}
+.bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  min-block-size: 72px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  margin-inline-end: auto;
+  border-radius: var(--r-sm);
+}
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.45rem;
+  letter-spacing: -0.03em;
+}
+.nav { display: flex; align-items: center; gap: var(--space-6); }
+.nav ul { display: flex; gap: var(--space-1); }
+.nav ul a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 44px;
+  padding-inline: var(--space-3);
+  border-radius: var(--r-pill);
+  color: var(--ink-2);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color var(--dur-1) var(--ease-out), background-color var(--dur-1) var(--ease-out);
+}
+.nav ul a:hover { color: var(--ink); background: var(--sunken); }
+.menu-btn {
+  display: none;
+  place-items: center;
+  inline-size: 44px;
+  block-size: 44px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line-strong);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 860px) {
+  .menu-btn { display: grid; }
+  .nav {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-start: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--gutter) var(--space-6);
+    background: var(--paper);
+    border-block-end: 1px solid var(--line);
+    box-shadow: var(--shadow-2);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity var(--dur-2) var(--ease-out), transform var(--dur-2) var(--ease-out), visibility 0s var(--dur-2);
+  }
+  :host(.is-open) .nav {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition: opacity var(--dur-2) var(--ease-out), transform var(--dur-2) var(--ease-out);
+  }
+  .nav ul { flex-direction: column; }
+  .nav ul a { font-size: var(--step-1); min-block-size: 52px; color: var(--ink); }
+  .nav-cta { min-block-size: 52px; }
+}

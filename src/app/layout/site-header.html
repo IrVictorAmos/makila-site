@@ -1,0 +1,22 @@
+<div class="bar container">
+  <a class="brand" routerLink="/" aria-label="Makila, accueil">
+    <app-logo [size]="34" />
+    <span class="wordmark">Makila</span>
+  </a>
+
+  <nav class="nav" id="menu-principal" aria-label="Navigation principale">
+    <ul role="list">
+      @for (l of links; track l.fragment) {
+        <li><a routerLink="/" [fragment]="l.fragment">{{ l.label }}</a></li>
+      }
+    </ul>
+    <a class="btn btn--primary btn--sm nav-cta" routerLink="/" fragment="telecharger">
+      <app-icon name="download" />Télécharger
+    </a>
+  </nav>
+
+  <button class="menu-btn" type="button" (click)="toggle()" [attr.aria-expanded]="open()" aria-controls="menu-principal">
+    <app-icon [name]="open() ? 'x' : 'menu'" />
+    <span class="visually-hidden">{{ open() ? 'Fermer le menu' : 'Ouvrir le menu' }}</span>
+  </button>
+</div>

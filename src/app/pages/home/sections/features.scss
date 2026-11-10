@@ -1,0 +1,84 @@
+.bento {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+.tile {
+  position: relative;
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  padding: var(--space-6);
+  border-radius: var(--r-xl);
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+.tile h3 { font-size: var(--step-1); }
+.tile p { color: var(--ink-2); font-size: 0.97rem; }
+
+.tile--hero {
+  grid-column: span 4;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  align-items: start;
+  gap: var(--space-6);
+  padding-block-end: 0;
+  background:
+    radial-gradient(80% 90% at 100% 0%, color-mix(in oklch, var(--brand) 10%, transparent), transparent 70%),
+    var(--surface-raised);
+}
+.tile--hero h3 { font-size: var(--step-2); }
+.tile-copy { display: grid; gap: var(--space-3); align-content: start; padding-block-end: var(--space-6); }
+.tile--hero .crop { block-size: 330px; align-self: end; }
+
+.tile--card {
+  grid-column: span 2;
+  grid-template-rows: auto 1fr;
+  padding-block-end: 0;
+}
+.tile--card .tile-copy { padding-block-end: var(--space-2); }
+.tile--card .crop { block-size: 210px; align-self: end; margin-inline: var(--space-2); }
+
+.tile--small { grid-column: span 2; }
+.tile--wide {
+  grid-column: span 3;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-4);
+}
+.tile--wide div { display: grid; gap: var(--space-2); }
+
+.extras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-block-start: var(--space-6);
+}
+.extras li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line-strong);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink-2);
+}
+.extras app-icon { color: var(--brand-text); }
+
+@media (max-width: 1000px) {
+  .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tile--hero { grid-column: span 2; }
+  .tile--card { grid-column: span 1; }
+  .tile--small { grid-column: span 1; }
+  .tile--wide { grid-column: span 2; }
+}
+@media (max-width: 700px) {
+  .bento { grid-template-columns: minmax(0, 1fr); }
+  .tile--hero, .tile--card, .tile--small, .tile--wide { grid-column: auto; }
+  .tile--hero { grid-template-columns: minmax(0, 1fr); }
+  .tile--hero .crop { block-size: 260px; inline-size: min(100%, 300px); justify-self: center; }
+  .tile--card .crop { block-size: 220px; inline-size: min(100%, 300px); justify-self: center; }
+  .tile { padding: var(--space-5); }
+}

@@ -1,0 +1,42 @@
+<section class="section orgs" id="etablissements" aria-labelledby="orgs-title">
+  <div class="container">
+    <div class="grid">
+      <div class="main">
+      <header class="section-head" appReveal>
+        <p class="eyebrow">Pour les établissements</p>
+        <h2 id="orgs-title">Hôpitaux, centres de transfusion, pharmacies : un espace de travail complet.</h2>
+        <p>Moins d'appels dans l'urgence, plus de donneurs qui arrivent au bon moment.</p>
+      </header>
+
+      <ul class="tools" role="list">
+        @for (t of tools; track t.title; let i = $index) {
+          <li [appReveal]="(i % 2) * 80">
+            <span class="icon-tile"><app-icon [name]="t.icon" /></span>
+            <div>
+              <h3>{{ t.title }}</h3>
+              <p>{{ t.text }}</p>
+            </div>
+          </li>
+        }
+      </ul>
+      </div>
+
+      <div class="side" appReveal="120">
+        <app-phone shot="workspace" alt="Espace de travail d'un établissement dans Makila : demandes, stock et équipe" sizes="300px" />
+      </div>
+    </div>
+
+    <div class="join card" appReveal>
+      <div class="join-head">
+        <h3>Rejoindre Makila en quatre étapes</h3>
+        <p>La vérification sur dossier protège les donneurs contre les faux établissements.</p>
+        <a class="btn btn--primary" routerLink="/" fragment="telecharger"><app-icon name="download" />Télécharger l'application</a>
+      </div>
+      <ol class="join-steps" role="list">
+        @for (j of join; track $index; let i = $index) {
+          <li><span class="num">{{ i + 1 }}</span><p>{{ j }}</p></li>
+        }
+      </ol>
+    </div>
+  </div>
+</section>

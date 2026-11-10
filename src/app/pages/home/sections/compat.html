@@ -1,0 +1,42 @@
+<section class="section compat" id="compatibilite" aria-labelledby="compat-title">
+  <div class="container grid">
+    <div class="copy" appReveal>
+      <p class="eyebrow">Groupes sanguins</p>
+      <h2 id="compat-title">Votre groupe, qui peut-il aider&nbsp;?</h2>
+      <p>Choisissez un groupe sanguin. Makila fait ce calcul pour chaque demande : vous n'êtes alerté que si votre sang convient.</p>
+      <div class="picker" role="radiogroup" aria-label="Groupe sanguin">
+        @for (g of groups; track g; let i = $index) {
+          <button type="button" role="radio" class="g" [class.on]="selected() === g"
+            [attr.aria-checked]="selected() === g" [attr.tabindex]="selected() === g ? 0 : -1"
+            (click)="selected.set(g)" (keydown)="onKey($event, i)">{{ g }}</button>
+        }
+      </div>
+      <p class="hint">Vous ne connaissez pas votre groupe ? Inscrivez-vous quand même : certaines collectes le déterminent gratuitement, et l'établissement le certifie dans l'application.</p>
+    </div>
+
+    <div class="panels" appReveal="120" aria-live="polite">
+      <div class="panel">
+        <h3>Avec du sang <span class="sel">{{ selected() }}</span>, vous pouvez donner à</h3>
+        <ul class="tokens" role="list">
+          @for (g of groups; track g) {
+            <li [class.yes]="has(giveTo(), g)">
+              {{ g }}<span class="visually-hidden">{{ has(giveTo(), g) ? ' : oui' : ' : non' }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Et vous pouvez recevoir de</h3>
+        <ul class="tokens tokens--in" role="list">
+          @for (g of groups; track g) {
+            <li [class.yes]="has(receiveFrom(), g)">
+              {{ g }}<span class="visually-hidden">{{ has(receiveFrom(), g) ? ' : oui' : ' : non' }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+      <p class="note">{{ note() }}</p>
+      <p class="fine">Compatibilité des globules rouges (sang total et concentrés). Le plasma suit d'autres règles. Le laboratoire vérifie toujours avant une transfusion.</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+<section class="hero" aria-labelledby="hero-title">
+  <svg class="pulse" viewBox="0 0 800 400" preserveAspectRatio="none" aria-hidden="true">
+    <path class="pulse-base" d="M0 250 H90 L125 150 L175 300 L230 70 L285 330 L320 250 H800" />
+    <path class="pulse-run" pathLength="1" d="M0 250 H90 L125 150 L175 300 L230 70 L285 330 L320 250 H800" />
+  </svg>
+
+  <div class="container grid">
+    <div class="copy">
+      <p class="eyebrow">Don de sang · République démocratique du Congo</p>
+      <h1 id="hero-title">Le sang qui sauve, <em>au bon moment.</em></h1>
+      <p class="lead">
+        Dès qu'un hôpital de votre ville manque de sang, Makila prévient les donneurs compatibles.
+        Vous répondez, vous donnez, une vie continue.
+      </p>
+      <div class="actions">
+        <a class="btn btn--primary btn--lg" routerLink="/" fragment="telecharger">
+          <app-icon name="download" />Télécharger pour Android
+        </a>
+        <a class="btn btn--lg btn--ghost" routerLink="/" fragment="etablissements">
+          <app-icon name="hospital" />Je représente un établissement
+        </a>
+      </div>
+      <ul class="facts" role="list">
+        <li><app-icon name="check" />Gratuit pour les donneurs</li>
+        <li><app-icon name="check" />Français et kiswahili</li>
+        <li><app-icon name="check" />Pensé pour les connexions faibles</li>
+      </ul>
+    </div>
+
+    <div class="visual">
+      <app-phone shot="home" alt="Écran d'accueil de Makila : deux urgences de sang O+ et A+ près de chez vous" [eager]="true"
+        sizes="(max-width: 600px) 72vw, 330px" />
+      <div class="float float--alert" aria-hidden="true">
+        <span class="float-icon"><app-icon name="siren" /></span>
+        <span class="float-text">
+          <strong>Sang O+ recherché</strong>
+          <small>Centre hospitalier · 1,2 km</small>
+        </span>
+        <span class="float-btn">Je peux donner</span>
+      </div>
+      <div class="float float--route" aria-hidden="true">
+        <span class="dots"><i></i><i></i><i></i></span>
+        <span><strong>3 donneurs</strong> en route</span>
+      </div>
+    </div>
+  </div>
+</section>

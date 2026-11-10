@@ -1,0 +1,58 @@
+<section class="section" id="eligibilite" aria-labelledby="elig-title">
+  <div class="container grid">
+    <div class="copy" appReveal>
+      <p class="eyebrow">Avant de vous déplacer</p>
+      <h2 id="elig-title">Puis-je donner mon sang aujourd'hui&nbsp;?</h2>
+      <p>Sept questions, moins d'une minute. Dans l'application, ce test est illustré et lu à voix haute, en français ou en kiswahili.</p>
+      <ul class="reassure" role="list">
+        <li><app-icon name="timer" />Un don de sang total dure environ 10 minutes.</li>
+        <li><app-icon name="shield-check" />Le matériel est stérile et à usage unique.</li>
+        <li><app-icon name="hand-heart" />Mangez, buvez et reposez-vous avant de venir.</li>
+      </ul>
+    </div>
+
+    <div class="quiz card" appReveal="120">
+      @if (!done()) {
+        <div class="top">
+          <span class="count num">Question {{ index() + 1 }} sur {{ questions.length }}</span>
+          @if (index() > 0) {
+            <button type="button" class="back" (click)="back()"><app-icon name="rotate-ccw" />Précédente</button>
+          }
+        </div>
+        <div class="track" aria-hidden="true"><span [style.width.%]="progress()"></span></div>
+        <div class="q" aria-live="polite">
+          <p class="q-text" #focusTarget tabindex="-1">{{ current().q }}</p>
+          @if (current().hint) {
+            <p class="q-hint">{{ current().hint }}</p>
+          }
+        </div>
+        <div class="answers">
+          <button type="button" class="btn btn--lg ans" (click)="answer(true)">Oui</button>
+          <button type="button" class="btn btn--lg ans" (click)="answer(false)">Non</button>
+        </div>
+      } @else {
+        <div class="result" aria-live="polite">
+          @if (blockers().length === 0) {
+            <span class="r-icon r-icon--ok"><app-icon name="badge-check" /></span>
+            <p class="q-text" #focusTarget tabindex="-1">Vous semblez pouvoir donner.</p>
+            <p>Répondez à une urgence ou inscrivez-vous à une collecte près de chez vous. Le personnel confirmera sur place.</p>
+            <div class="answers">
+              <a class="btn btn--primary btn--lg" routerLink="/" fragment="telecharger"><app-icon name="download" />Télécharger Makila</a>
+              <button type="button" class="btn btn--lg btn--ghost" (click)="restart()">Recommencer</button>
+            </div>
+          } @else {
+            <span class="r-icon"><app-icon name="clock" /></span>
+            <p class="q-text" #focusTarget tabindex="-1">Pas aujourd'hui, et ce n'est pas grave.</p>
+            <p>{{ blockers()[0].why }}</p>
+            <p class="small">Installez Makila quand même : l'application vous dira quand vous pourrez donner.</p>
+            <div class="answers">
+              <button type="button" class="btn btn--lg" (click)="back()">Modifier ma réponse</button>
+              <button type="button" class="btn btn--lg btn--ghost" (click)="restart()">Recommencer</button>
+            </div>
+          }
+        </div>
+      }
+      <p class="fine">Indicatif. Le personnel médical a toujours le dernier mot.</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+.trust { background: var(--sunken); }
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: var(--space-8);
+  align-items: start;
+}
+.section-head { margin: 0; position: sticky; inset-block-start: 112px; }
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-block-start: 1px solid var(--line-strong);
+}
+.list li {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-6) var(--space-5) var(--space-6) 0;
+  border-block-end: 1px solid var(--line-strong);
+}
+.list li:nth-child(even) { padding-inline: var(--space-5) 0; border-inline-start: 1px solid var(--line-strong); }
+.list app-icon { color: var(--brand-text); font-size: 1.3rem; margin-block-end: var(--space-2); }
+.list h3 { font-size: var(--step-1); }
+.list p { color: var(--ink-2); font-size: 0.95rem; }
+@media (max-width: 1000px) {
+  .grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-6); }
+  .section-head { position: static; }
+}
+@media (max-width: 640px) {
+  .list { grid-template-columns: minmax(0, 1fr); }
+  .list li, .list li:nth-child(even) { padding-inline: 0; border-inline-start: 0; }
+}

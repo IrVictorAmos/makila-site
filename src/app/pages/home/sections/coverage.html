@@ -1,0 +1,31 @@
+<section class="section" id="couverture" aria-labelledby="cov-title">
+  <div class="container grid">
+    <div class="copy" appReveal>
+      <p class="eyebrow">Toute la RDC</p>
+      <h2 id="cov-title">Pensé pour les 26 provinces, organisé ville par ville.</h2>
+      <p>Les alertes restent locales. Un donneur de Kinshasa n'est jamais sollicité pour un hôpital de Bukavu : la ville est vérifiée par le serveur et, quand c'est possible, par le GPS au moment de répondre.</p>
+      <ul class="points" role="list">
+        <li><app-icon name="map-pin" /><span><strong>Communes et quartiers</strong> pour indiquer précisément où vous habitez.</span></li>
+        <li><app-icon name="eye-off" /><span><strong>Votre position n'est jamais enregistrée.</strong> Elle sert un instant, puis elle est oubliée.</span></li>
+        <li><app-icon name="activity" /><span><strong>Zone élargie à la province</strong> si l'urgence l'exige, sur décision de l'établissement.</span></li>
+      </ul>
+    </div>
+
+    <figure class="map" appReveal="120">
+      <svg [attr.viewBox]="viewBox" role="img" aria-labelledby="map-title">
+        <title id="map-title">Carte de la RDC avec les principales villes : Kinshasa, Lubumbashi, Kisangani, Bukavu, Goma et d'autres</title>
+        <path class="country" [attr.d]="path" />
+        @for (c of cities; track c.name; let i = $index) {
+          <g class="city" [class.capital]="c.capital" [attr.style]="'--d:' + ((i * 0.37) % 3).toFixed(2) + 's'">
+            <circle class="ring" [attr.cx]="c.x" [attr.cy]="c.y" r="5" />
+            <circle class="dot" [attr.cx]="c.x" [attr.cy]="c.y" [attr.r]="c.capital ? 6 : 4" />
+            @if (labelled.has(c.name)) {
+              <text [attr.x]="c.x + labelDx(c.name)" [attr.y]="c.y + 4" [attr.text-anchor]="labelAnchor(c.name)">{{ c.name }}</text>
+            }
+          </g>
+        }
+      </svg>
+      <figcaption>Contour : Natural Earth. Points : principales villes.</figcaption>
+    </figure>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+{
+  "name": "Makila",
+  "short_name": "Makila",
+  "description": "Le don de sang qui sauve, partout en RDC.",
+  "lang": "fr",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FBF7F6",
+  "theme_color": "#D61F45",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

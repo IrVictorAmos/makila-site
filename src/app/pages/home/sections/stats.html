@@ -1,0 +1,54 @@
+<section class="stats section" aria-labelledby="stats-title">
+  <div class="container grid">
+    <div class="intro" appReveal>
+      <p class="eyebrow">Le constat</p>
+      <h2 id="stats-title">En RDC, environ un besoin en sang sur trois reste sans réponse.</h2>
+      <p>
+        Les premiers concernés sont les enfants atteints d'anémie sévère, souvent à cause du paludisme,
+        et les femmes qui saignent pendant ou après l'accouchement. Le sang ne se fabrique pas : il vient
+        d'une personne qui a décidé de donner.
+      </p>
+    </div>
+
+    <div class="viz" appReveal="120">
+      <figure class="bar-figure">
+        <figcaption>
+          <span>Poches de sang par an</span>
+          <span class="legend"><i class="sw sw--got"></i>Collectées en 2022 <i class="sw sw--miss"></i>Manquantes</span>
+        </figcaption>
+        <div class="bar" role="img"
+          [attr.aria-label]="'Besoin annuel : 750 000 poches. Collectées en 2022 : 481 559, soit ' + share + ' %. Il en manque environ ' + fmt(missing) + '.'">
+          <div class="bar-got" [style.width.%]="share">
+            <span class="num">{{ fmt(collected) }}</span>
+          </div>
+          <div class="bar-miss">
+            <span class="num">≈ {{ fmt(missing) }}</span>
+          </div>
+        </div>
+        <div class="scale"><span>0</span><span class="num">Besoin : {{ fmt(need) }}</span></div>
+      </figure>
+
+      <dl class="figures">
+        <div>
+          <dt class="num">36 %</dt>
+          <dd>des dons viennent de donneurs bénévoles. Les autres dépendent encore de la famille du malade ou sont payés.</dd>
+        </div>
+        <div>
+          <dt class="num">80 %</dt>
+          <dd>de dons bénévoles : c'est l'objectif national d'ici 2030.</dd>
+        </div>
+        <div>
+          <dt class="num">4,5</dt>
+          <dd>dons pour 1 000 habitants dans les pays à faible revenu, contre 28,9 dans les pays riches.</dd>
+        </div>
+      </dl>
+
+      <p class="sources">
+        Sources :
+        <a href="https://www.afro.who.int/node/17943" target="_blank" rel="noopener">CNTS, via l'OMS Afrique (2023)</a>,
+        <a href="https://afro.who.int/node/16446" target="_blank" rel="noopener">OMS Afrique (2022)</a>,
+        <a href="https://www.who.int/news-room/fact-sheets/detail/blood-safety-and-availability" target="_blank" rel="noopener">OMS, aide-mémoire (2026)</a>.
+      </p>
+    </div>
+  </div>
+</section>

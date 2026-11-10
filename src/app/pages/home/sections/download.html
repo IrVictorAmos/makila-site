@@ -1,0 +1,37 @@
+<section class="download" id="telecharger" aria-labelledby="dl-title">
+  <div class="container">
+    <div class="panel" appReveal>
+      <svg class="pulse" viewBox="0 0 600 300" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 200 H60 L95 110 L145 240 L200 60 L255 260 L290 200 H600" />
+      </svg>
+      <div class="copy">
+        <h2 id="dl-title">Rejoignez les donneurs de votre ville.</h2>
+        <p>Installez Makila, indiquez votre groupe et votre ville. La prochaine urgence près de chez vous pourra compter sur vous.</p>
+        <div class="actions">
+          <a class="btn btn--lg btn--light" [href]="href" rel="nofollow">
+            <app-icon name="download" />Télécharger pour Android
+          </a>
+          @if (playStore) {
+            <a class="btn btn--lg btn--outline-light" [href]="playStore" target="_blank" rel="noopener">Google Play</a>
+          }
+        </div>
+        <p class="meta">Version bêta · Android 7 ou plus récent · environ 27 Mo · iPhone bientôt</p>
+      </div>
+
+      <div class="qr" aria-hidden="true">
+        <svg [attr.viewBox]="qrBox" shape-rendering="crispEdges"><rect x="-2" y="-2" width="100%" height="100%" fill="#fff" /><path [attr.d]="qrPath" fill="#1b0b10" /></svg>
+        <span class="qr-logo"><app-logo [size]="34" /></span>
+        <p>Sur ordinateur ? Scannez avec l'appareil photo de votre téléphone.</p>
+      </div>
+    </div>
+
+    <div class="install" appReveal="80">
+      <h3>Installer le fichier en trois étapes</h3>
+      <ol role="list">
+        <li><span class="num">1</span><p>Touchez «&nbsp;Télécharger&nbsp;», puis ouvrez le fichier <strong>makila-android.apk</strong> une fois téléchargé.</p></li>
+        <li><span class="num">2</span><p>Si Android le demande, autorisez votre navigateur à installer des applications («&nbsp;Sources inconnues&nbsp;»), puis touchez «&nbsp;Installer&nbsp;».</p></li>
+        <li><span class="num">3</span><p>Ouvrez Makila, choisissez votre langue et créez votre compte. Vous pouvez désactiver l'autorisation de l'étape 2 ensuite.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>

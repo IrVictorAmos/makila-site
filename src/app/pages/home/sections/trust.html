@@ -1,0 +1,19 @@
+<section class="section trust" id="confiance" aria-labelledby="trust-title">
+  <div class="container grid">
+    <header class="section-head" appReveal>
+      <p class="eyebrow">Confiance</p>
+      <h2 id="trust-title">Une information de santé mérite une confiance totale.</h2>
+      <p>Makila est conçu pour éviter les fausses demandes, les erreurs de groupe et l'exposition de données sensibles.</p>
+      <a class="link-arrow" routerLink="/confidentialite">Lire notre politique de confidentialité<app-icon name="arrow-right" /></a>
+    </header>
+    <ul class="list" role="list">
+      @for (it of items; track it.title; let i = $index) {
+        <li [appReveal]="(i % 2) * 80">
+          <app-icon [name]="it.icon" />
+          <h3>{{ it.title }}</h3>
+          <p>{{ it.text }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

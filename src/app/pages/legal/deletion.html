@@ -1,0 +1,53 @@
+<article class="legal container">
+  <header class="legal-head">
+    <p class="eyebrow">Vos données</p>
+    <h1>Supprimer votre compte Makila</h1>
+    <p class="lead">Vous pouvez supprimer votre compte à tout moment, sans justification. La suppression est immédiate et définitive.</p>
+    <p class="updated">Dernière mise à jour : {{ updated }}</p>
+  </header>
+
+  <div class="legal-body">
+    <nav class="toc" aria-label="Sommaire">
+      <p>Sommaire</p>
+      <ol>
+        <li><a [routerLink]="[]" fragment="application">Depuis l'application</a></li>
+        <li><a [routerLink]="[]" fragment="email">Sans accès à l'application</a></li>
+        <li><a [routerLink]="[]" fragment="effaces">Ce qui est effacé</a></li>
+        <li><a [routerLink]="[]" fragment="conserve">Ce qui est conservé</a></li>
+        <li><a [routerLink]="[]" fragment="partiel">Effacer seulement certaines données</a></li>
+      </ol>
+    </nav>
+
+    <div class="prose">
+      <h2 id="application">1. Depuis l'application Makila</h2>
+      <ol class="steps">
+        <li><span>Ouvrez Makila et touchez l'onglet <strong>Moi</strong>.</span></li>
+        <li><span>Ouvrez <strong>Paramètres</strong>, puis tout en bas, touchez <strong>Supprimer mon compte</strong>.</span></li>
+        <li><span>Confirmez. Votre compte et vos données sont effacés immédiatement.</span></li>
+      </ol>
+      <p>Vous êtes le seul administrateur d'un établissement ? Nommez d'abord un autre administrateur dans l'équipe : un établissement ne peut pas rester sans responsable.</p>
+
+      <h2 id="email">2. Sans accès à l'application</h2>
+      <p>Écrivez-nous à <app-contact-link /> depuis l'adresse e-mail de votre compte, avec pour objet «&nbsp;Suppression de compte&nbsp;». Nous vérifions que la demande vient bien de vous, puis nous supprimons le compte dans un délai maximum de 30 jours et vous confirmons la suppression.</p>
+
+      <h2 id="effaces">3. Ce qui est effacé</h2>
+      <ul>
+        <li>Votre compte et vos identifiants de connexion.</li>
+        <li>Votre profil : nom, téléphone, groupe sanguin, sexe, date de naissance, ville, commune, quartier, photo.</li>
+        <li>Vos réponses aux demandes, vos inscriptions aux collectes, votre historique de dons et vos badges.</li>
+        <li>Vos commentaires, vos «&nbsp;j'aime&nbsp;» et vos demandes de correction.</li>
+        <li>Vos jetons de notification et vos notifications.</li>
+      </ul>
+
+      <h2 id="conserve">4. Ce qui est conservé, sans lien avec vous</h2>
+      <ul>
+        <li>Les annonces, demandes de sang et collectes publiées au nom d'un établissement restent en ligne : elles appartiennent à l'établissement. Votre nom n'y est plus associé.</li>
+        <li>Les signalements de cas déjà transmis à un établissement restent dans son dossier, sans votre identité.</li>
+        <li>Des copies peuvent subsister quelques jours dans les sauvegardes techniques de notre hébergeur, avant d'être écrasées automatiquement.</li>
+      </ul>
+
+      <h2 id="partiel">5. Effacer seulement certaines données</h2>
+      <p>Sans supprimer votre compte, vous pouvez retirer votre téléphone ou votre photo dans <strong>Moi &gt; Modifier mon profil</strong>, vous rendre indisponible pour les urgences, ou couper les notifications dans les <strong>Paramètres</strong>. Pour toute autre demande, écrivez-nous. Plus de détails dans notre <a routerLink="/confidentialite">politique de confidentialité</a>.</p>
+    </div>
+  </div>
+</article>

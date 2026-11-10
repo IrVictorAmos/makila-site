@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Makila — Le don de sang qui sauve, partout en RDC</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#FBF7F6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1B1214" media="(prefers-color-scheme: dark)">
+  <meta name="application-name" content="Makila">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    // Animations d'apparition seulement si l'application démarre ; sinon tout reste visible.
+    document.documentElement.classList.add('js');
+    setTimeout(function () { if (!window.__mkReady) document.documentElement.classList.remove('js'); }, 4000);
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://makila.vercel.app/#organisation",
+        "name": "Makila",
+        "url": "https://makila.vercel.app/",
+        "logo": "https://makila.vercel.app/icon-512.png",
+        "description": "Application de mise en relation entre donneurs de sang et établissements de santé en République démocratique du Congo."
+      },
+      {
+        "@type": "MobileApplication",
+        "name": "Makila",
+        "operatingSystem": "Android",
+        "applicationCategory": "HealthApplication",
+        "inLanguage": ["fr", "sw"],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@id": "https://makila.vercel.app/#organisation" },
+        "countriesSupported": "CD"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

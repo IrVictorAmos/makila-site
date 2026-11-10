@@ -1,0 +1,114 @@
+<article class="legal container">
+  <header class="legal-head">
+    <p class="eyebrow">Confidentialité</p>
+    <h1>Politique de confidentialité</h1>
+    <p class="lead">Makila traite des informations de santé, comme votre groupe sanguin. Nous en collectons le moins possible, nous ne les vendons jamais et vous pouvez les supprimer à tout moment.</p>
+    <p class="updated">Dernière mise à jour : {{ updated }}</p>
+  </header>
+
+  <div class="legal-body">
+    <nav class="toc" aria-label="Sommaire">
+      <p>Sommaire</p>
+      <ol>
+        @for (t of toc; track t[0]) {
+          <li><a [routerLink]="[]" [fragment]="t[0]">{{ t[1] }}</a></li>
+        }
+      </ol>
+    </nav>
+
+    <div class="prose">
+      <div class="callout">
+        <p><strong>En bref.</strong> Vos données servent à une seule chose : vous mettre en relation avec les établissements de santé de votre ville quand votre sang peut sauver une vie. Votre position n'est jamais enregistrée. Aucune publicité, aucun pistage publicitaire.</p>
+      </div>
+
+      <h2 id="qui">1. Qui sommes-nous</h2>
+      <p>Makila est une application mobile de mise en relation entre donneurs de sang, hôpitaux, centres de transfusion et pharmacies en République démocratique du Congo. Le responsable du traitement de vos données est l'équipe Makila, joignable à l'adresse <app-contact-link />.</p>
+      <p>Nous traitons vos données dans le respect de l'ordonnance-loi n° 23/010 du 13 mars 2023 portant Code du numérique, qui encadre la protection des données à caractère personnel en RDC.</p>
+
+      <h2 id="donnees">2. Données collectées</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Catégorie</th><th scope="col">Exemples</th><th scope="col">Obligatoire&nbsp;?</th></tr></thead>
+          <tbody>
+            <tr><td>Compte</td><td>Adresse e-mail et mot de passe (jamais stocké en clair), ou identité Google si vous utilisez «&nbsp;Continuer avec Google&nbsp;» : nom, e-mail, photo.</td><td>Oui</td></tr>
+            <tr><td>Profil de donneur</td><td>Nom, sexe, date de naissance, groupe sanguin (ou «&nbsp;je ne sais pas&nbsp;»), province, ville, commune et quartier, langue.</td><td>Oui</td></tr>
+            <tr><td>Informations facultatives</td><td>Téléphone, poids, photo de profil, date et type de votre dernier don.</td><td>Non</td></tr>
+            <tr><td>Activité de don</td><td>Réponses aux demandes et heure d'arrivée annoncée, inscriptions aux collectes, dons enregistrés par un établissement, badges.</td><td>Selon votre usage</td></tr>
+            <tr><td>Contenus</td><td>Commentaires, mentions «&nbsp;j'aime&nbsp;», signalements, signalements de cas envoyés à un établissement.</td><td>Selon votre usage</td></tr>
+            <tr><td>Établissements</td><td>Pour le personnel : nom de l'établissement, adresse, horaires, numéro d'agrément, pièces justificatives, rôle dans l'équipe.</td><td>Pour les établissements</td></tr>
+            <tr><td>Appareil</td><td>Jeton de notification et type d'appareil, pour vous envoyer les alertes.</td><td>Si vous activez les notifications</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Votre groupe sanguin est une donnée de santé. Nous ne la collectons qu'avec votre accord, au moment de l'inscription, et uniquement pour vous alerter quand votre sang est compatible.</p>
+
+      <h2 id="position">3. Votre position</h2>
+      <p>L'application peut utiliser votre position GPS, avec votre autorisation, pour trois choses : vérifier que vous êtes bien dans la ville de l'hôpital au moment où vous répondez à une demande, afficher la carte autour de vous, et placer un établissement sur la carte lors de son inscription.</p>
+      <p><strong>Votre position n'est jamais enregistrée sur nos serveurs.</strong> Seule la distance approximative entre vous et l'hôpital, au moment de votre réponse, peut être indiquée à l'établissement. La position d'un établissement, elle, est publique.</p>
+
+      <h2 id="finalites">4. Pourquoi nous les utilisons</h2>
+      <ul>
+        <li><strong>Vous alerter</strong> quand un établissement de votre ville a besoin d'un sang compatible avec le vôtre, et seulement si vous êtes disponible et en état de donner.</li>
+        <li><strong>Organiser le don</strong> : réponses aux demandes, collectes, rappels, enregistrement des dons et calcul de la date de votre prochain don.</li>
+        <li><strong>Vérifier les établissements</strong> avant qu'ils puissent publier, pour protéger les donneurs contre les fausses demandes.</li>
+        <li><strong>Assurer la sécurité</strong> de la communauté : modération des commentaires, traitement des signalements, prévention des abus.</li>
+        <li><strong>Vous informer</strong> des annonces de santé de votre ville, si vous l'acceptez dans vos réglages.</li>
+      </ul>
+      <p>Nous ne faisons ni publicité, ni profilage commercial, et nous ne vendons ni ne louons vos données.</p>
+
+      <h2 id="partage">5. Qui peut les voir</h2>
+      <ul>
+        <li><strong>Les autres utilisateurs</strong> ne voient pas votre profil. Seuls votre nom et votre message apparaissent quand vous commentez une annonce.</li>
+        <li><strong>L'établissement</strong> dont vous acceptez une demande ou rejoignez une collecte voit votre nom, votre téléphone, votre groupe sanguin, votre quartier, votre heure d'arrivée et le nombre de vos dons. Il en a besoin pour vous accueillir.</li>
+        <li><strong>Les signalements de cas</strong> sont transmis uniquement à l'établissement concerné, jamais publiés.</li>
+        <li><strong>Les pièces justificatives</strong> d'un établissement sont stockées dans un espace privé, visible seulement par ses administrateurs et par l'équipe de vérification.</li>
+        <li><strong>L'équipe Makila et les superviseurs provinciaux</strong> accèdent aux données nécessaires à la vérification, à la modération et aux corrections d'identité que vous demandez.</li>
+      </ul>
+      <p>Nous ne communiquons vos données à une autorité que si la loi nous y oblige.</p>
+
+      <h2 id="prestataires">6. Prestataires techniques</h2>
+      <p>Pour fonctionner, Makila s'appuie sur des services reconnus, qui traitent les données pour notre compte, selon nos instructions :</p>
+      <ul>
+        <li><strong>Supabase</strong> : base de données, comptes et stockage des fichiers. Les serveurs sont situés hors de la RDC.</li>
+        <li><strong>Google Firebase Cloud Messaging</strong> : acheminement des notifications vers votre téléphone.</li>
+        <li><strong>Google</strong> : connexion avec votre compte Google, si vous la choisissez.</li>
+        <li><strong>OpenStreetMap</strong> : fonds de carte. Votre téléphone télécharge les images de la carte depuis leurs serveurs.</li>
+      </ul>
+
+      <h2 id="conservation">7. Durée de conservation</h2>
+      <ul>
+        <li>Vos données de compte et de profil sont conservées tant que votre compte existe.</li>
+        <li>Les notifications sont effacées automatiquement après 120 jours.</li>
+        <li>Les jetons de notification inutilisés sont effacés après 120 jours.</li>
+        <li>Quand vous supprimez votre compte, votre profil, vos réponses, vos inscriptions, votre historique de dons, vos commentaires et vos «&nbsp;j'aime&nbsp;» sont effacés. Les contenus publiés au nom d'un établissement restent en ligne, sans lien avec vous. <a routerLink="/suppression-compte">En savoir plus.</a></li>
+      </ul>
+
+      <h2 id="securite">8. Sécurité</h2>
+      <ul>
+        <li>Tous les échanges sont chiffrés (HTTPS).</li>
+        <li>Chaque ligne de la base est protégée par des règles d'accès : un utilisateur ne peut lire que ce qui le concerne.</li>
+        <li>Les mots de passe ne sont jamais stockés en clair.</li>
+        <li>Le groupe sanguin, le sexe et la date de naissance ne peuvent pas être modifiés librement, pour éviter les erreurs dangereuses.</li>
+      </ul>
+      <p>Aucun système n'est parfaitement sûr. En cas d'incident touchant vos données, nous vous en informerons dans les meilleurs délais.</p>
+
+      <h2 id="droits">9. Vos droits</h2>
+      <p>Vous pouvez à tout moment :</p>
+      <ul>
+        <li><strong>consulter et corriger</strong> vos informations dans l'application (Moi &gt; Modifier mon profil). Pour le groupe sanguin, le sexe ou la date de naissance, faites une demande de correction ;</li>
+        <li><strong>vous rendre indisponible</strong> ou couper les notifications dans les réglages ;</li>
+        <li><strong>retirer votre consentement et supprimer votre compte</strong> depuis l'application (Moi &gt; Paramètres &gt; Supprimer mon compte) ;</li>
+        <li><strong>nous écrire</strong> pour toute question ou demande d'accès à vos données : <app-contact-link />. Nous répondons sous 30 jours.</li>
+      </ul>
+
+      <h2 id="age">10. Âge minimum</h2>
+      <p>Makila est destiné aux personnes de 18 ans et plus, l'âge minimum pour donner son sang. Si vous pensez qu'un mineur nous a transmis des données, écrivez-nous pour que nous les supprimions.</p>
+
+      <h2 id="site">11. Ce site web</h2>
+      <p>Ce site n'utilise ni cookie, ni outil de mesure d'audience, ni publicité. Son hébergeur, Vercel, conserve des journaux techniques (adresse IP, pages demandées) pour assurer la sécurité et le bon fonctionnement du service.</p>
+
+      <h2 id="changements">12. Modifications</h2>
+      <p>Nous pouvons faire évoluer cette politique, par exemple quand l'application change. La date en haut de la page indique la dernière mise à jour. En cas de changement important, nous vous préviendrons dans l'application.</p>
+    </div>
+  </div>
+</article>

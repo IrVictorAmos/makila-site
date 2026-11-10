@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Makila : une ligne plate (une vie en danger) entre dans la goutte de sang
+       et en ressort en battement de cœur dessinant un « M ». Le don relance la vie. -->
+  <defs>
+    <linearGradient id="g" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#FF4D6A"/><stop offset="0.55" stop-color="#E0213F"/><stop offset="1" stop-color="#A80F33"/>
+    </linearGradient>
+    <clipPath id="d"><path d="M50 5 C44 17 23 37 23 60.5 A27 27 0 0 0 77 60.5 C77 37 56 17 50 5 Z"/></clipPath>
+  </defs>
+  <path d="M3 63 H31.5 L36 41.5 L50 59 L64 41.5 L67.5 68.5 L70.5 63 H97" fill="none" stroke="#E0213F" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M50 5 C44 17 23 37 23 60.5 A27 27 0 0 0 77 60.5 C77 37 56 17 50 5 Z" fill="url(#g)"/>
+  <g clip-path="url(#d)"><path d="M3 63 H31.5 L36 41.5 L50 59 L64 41.5 L67.5 68.5 L70.5 63 H97" fill="none" stroke="#FFFFFF" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>

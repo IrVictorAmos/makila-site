@@ -1,0 +1,73 @@
+<article class="legal container">
+  <header class="legal-head">
+    <p class="eyebrow">Conditions</p>
+    <h1>Conditions d'utilisation</h1>
+    <p class="lead">Makila repose sur la confiance entre donneurs et soignants. Ces règles, courtes, la protègent. En utilisant l'application, vous les acceptez.</p>
+    <p class="updated">Dernière mise à jour : {{ updated }}</p>
+  </header>
+
+  <div class="legal-body">
+    <nav class="toc" aria-label="Sommaire">
+      <p>Sommaire</p>
+      <ol>
+        @for (t of toc; track t[0]) {
+          <li><a [routerLink]="[]" [fragment]="t[0]">{{ t[1] }}</a></li>
+        }
+      </ol>
+    </nav>
+
+    <div class="prose">
+      <h2 id="objet">1. Objet du service</h2>
+      <p>Makila est une application gratuite qui met en relation des donneurs de sang et des établissements de santé (hôpitaux, centres de santé, centres de transfusion, pharmacies) en République démocratique du Congo. Elle permet de publier des besoins en sang, d'y répondre, d'organiser des collectes et de partager des informations de santé publique.</p>
+
+      <h2 id="compte">2. Votre compte</h2>
+      <ul>
+        <li>Vous devez avoir au moins 18 ans.</li>
+        <li>Une personne, un compte. Les informations que vous donnez, en particulier votre groupe sanguin, doivent être exactes : une erreur peut mettre un patient en danger.</li>
+        <li>Votre groupe sanguin, votre sexe et votre date de naissance ne se modifient que par une demande de correction vérifiée.</li>
+        <li>Vous êtes responsable de la confidentialité de votre mot de passe.</li>
+      </ul>
+
+      <h2 id="medical">3. Makila n'est pas un service médical</h2>
+      <div class="callout">
+        <p>Makila ne pose aucun diagnostic et ne remplace pas un avis médical. Le test d'éligibilité est indicatif : <strong>le personnel de santé décide toujours, sur place, si vous pouvez donner.</strong> En cas d'urgence vitale, contactez directement un hôpital ou les services d'urgence.</p>
+      </div>
+      <p>Les prélèvements, analyses et transfusions sont réalisés par les établissements, sous leur seule responsabilité et selon les règles de sécurité transfusionnelle en vigueur.</p>
+
+      <h2 id="donneurs">4. Engagements des donneurs</h2>
+      <ul>
+        <li>Répondre «&nbsp;Je peux donner&nbsp;» seulement si vous pouvez réellement vous déplacer, et annuler votre engagement dès que vous êtes empêché.</li>
+        <li>Répondre honnêtement aux questions du personnel de santé avant le don.</li>
+        <li>Le don de sang est bénévole : il est interdit d'utiliser Makila pour demander ou proposer de l'argent en échange d'un don.</li>
+      </ul>
+
+      <h2 id="etablissements">5. Engagements des établissements</h2>
+      <ul>
+        <li>Fournir des informations et des pièces justificatives authentiques, et signaler tout changement (agrément, adresse, responsable).</li>
+        <li>Publier uniquement des besoins réels, les mettre à jour et les clôturer quand ils sont satisfaits.</li>
+        <li>Utiliser les coordonnées des donneurs seulement pour organiser le don, jamais à d'autres fins.</li>
+        <li>Publier des informations de santé exactes, vérifiées et non alarmistes.</li>
+        <li>Désigner au moins un administrateur responsable de l'équipe et des accès.</li>
+      </ul>
+      <p>L'équipe Makila peut refuser, suspendre ou retirer un établissement dont le dossier est incomplet ou douteux.</p>
+
+      <h2 id="contenus">6. Contenus et comportement</h2>
+      <p>Sont interdits : les propos injurieux, discriminatoires ou menaçants, les fausses informations de santé, l'usurpation d'identité, la publicité et la collecte des données d'autres utilisateurs. Les commentaires sont filtrés et peuvent être signalés. En cas d'abus, nous pouvons masquer un contenu, bloquer temporairement les commentaires d'un compte ou le suspendre.</p>
+
+      <h2 id="service">7. Disponibilité du service</h2>
+      <p>Makila est en version bêta. Nous faisons le maximum pour qu'il fonctionne en permanence, mais nous ne pouvons pas garantir qu'une notification arrive toujours à temps : elle dépend aussi du réseau mobile et de votre téléphone. Le service peut évoluer, être interrompu pour maintenance ou s'arrêter.</p>
+
+      <h2 id="responsabilite">8. Responsabilité</h2>
+      <p>Makila est un outil de mise en relation. Nous ne sommes pas responsables des actes médicaux, de l'issue d'un don ou d'une transfusion, ni des informations publiées par les établissements ou les utilisateurs. Dans les limites permises par la loi, notre responsabilité ne peut être engagée qu'en cas de faute de notre part.</p>
+
+      <h2 id="propriete">9. Propriété intellectuelle</h2>
+      <p>Le nom Makila, son logo, l'application et ce site sont protégés. Vous conservez vos droits sur les contenus que vous publiez, et vous nous autorisez à les afficher dans le service.</p>
+
+      <h2 id="fin">10. Fin de l'utilisation</h2>
+      <p>Vous pouvez arrêter d'utiliser Makila et <a routerLink="/suppression-compte">supprimer votre compte</a> à tout moment. Nous pouvons suspendre un compte qui ne respecte pas ces conditions, après vous en avoir informé sauf en cas d'urgence ou de danger.</p>
+
+      <h2 id="droit">11. Droit applicable et contact</h2>
+      <p>Ces conditions sont régies par le droit de la République démocratique du Congo. Le traitement de vos données est décrit dans notre <a routerLink="/confidentialite">politique de confidentialité</a>. Pour toute question : <app-contact-link />.</p>
+    </div>
+  </div>
+</article>
