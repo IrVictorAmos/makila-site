@@ -36,5 +36,8 @@
     "typescript": "~6.0.2",
     "vitest": "^5.0.0",
     "world-atlas": "^2.0.2"
+  },
+  "engines": {
+    "node": ">=22.12"
   }
 }
