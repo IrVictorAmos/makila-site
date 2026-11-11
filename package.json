@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && node tools/postbuild.mjs",
+    "build": "node tools/gen-env.mjs && ng build && node tools/postbuild.mjs",
     "gen": "node tools/gen-map.mjs && node tools/gen-icons.mjs && node tools/gen-qr.mjs",
     "test": "ng test"
   },

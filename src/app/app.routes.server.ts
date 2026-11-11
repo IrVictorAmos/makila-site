@@ -6,6 +6,7 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'confidentialite', renderMode: RenderMode.Prerender },
   { path: 'conditions', renderMode: RenderMode.Prerender },
   { path: 'suppression-compte', renderMode: RenderMode.Prerender },
+  { path: 'verifier', renderMode: RenderMode.Prerender },
   { path: '404', renderMode: RenderMode.Prerender },
   { path: '**', renderMode: RenderMode.Client },
 ];

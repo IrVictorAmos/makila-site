@@ -1,0 +1,64 @@
+<section class="verify container">
+  <p class="eyebrow">Attestations</p>
+  <h1>Vérifier une attestation</h1>
+  <p class="lead">
+    Scannez le QR code imprimé sur l'attestation avec l'appareil photo de votre téléphone, ou saisissez son numéro
+    (MKA-… pour un groupe sanguin, MKD-… pour un don).
+  </p>
+
+  <form (ngSubmit)="check()">
+    <input
+      name="code"
+      [(ngModel)]="code"
+      placeholder="MKA-XXXX-XXXX"
+      autocomplete="off"
+      autocapitalize="characters"
+      spellcheck="false"
+      aria-label="Numéro de l'attestation"
+    />
+    <button class="btn btn--primary btn--lg" type="submit" [disabled]="loading()">
+      {{ loading() ? 'Vérification…' : 'Vérifier' }}
+    </button>
+  </form>
+
+  @if (error()) {
+    <div class="card ko" role="alert"><p class="verdict">{{ error() }}</p></div>
+  }
+
+  @if (result(); as r) {
+    @if (!r.found) {
+      <div class="card ko" role="status">
+        <p class="verdict">✗ Attestation introuvable</p>
+        <p>Ce numéro ne correspond à aucune attestation délivrée via Makila. Vérifiez la saisie ou contactez l'établissement émetteur.</p>
+      </div>
+    } @else {
+      <div class="card" [class.ok]="r.status !== 'revoked'" [class.ko]="r.status === 'revoked'" role="status">
+        @if (r.blood_group) {
+          <span class="group" aria-label="Groupe sanguin">{{ r.blood_group }}</span>
+        }
+        <p class="verdict">{{ r.status === 'revoked' ? '✗ Attestation annulée' : '✓ Attestation authentique' }}</p>
+        <dl>
+          <dt>Document</dt>
+          <dd>{{ r.kind === 'donation' ? 'Attestation de don de sang' : 'Attestation de groupe sanguin' }}</dd>
+          <dt>Numéro</dt>
+          <dd>{{ r.code }}</dd>
+          @if (r.blood_group) {
+            <dt>Groupe</dt>
+            <dd>{{ r.blood_group }} · {{ r.confirmed ? 'confirmé (2 déterminations)' : 'provisoire (1 détermination)' }}</dd>
+          }
+          <dt>Titulaire</dt>
+          <dd>{{ r.holder }}@if (r.birth_year) { · né(e) en {{ r.birth_year }} }</dd>
+          <dt>Délivrée par</dt>
+          <dd>{{ r.org_name }}@if (r.org_city) {, {{ r.org_city }} }</dd>
+          <dt>{{ r.kind === 'donation' ? 'Don du' : 'Le' }}</dt>
+          <dd>{{ date(r.issued_on || r.donated_on) }}</dd>
+        </dl>
+      </div>
+    }
+  }
+
+  <p class="note">
+    Pour protéger la vie privée, seules les initiales du titulaire sont affichées. Comparez-les avec la pièce
+    d'identité présentée. L'attestation ne dispense pas du contrôle de compatibilité avant toute transfusion.
+  </p>
+</section>
