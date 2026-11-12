@@ -26,10 +26,15 @@
   }
 
   @if (result(); as r) {
-    @if (!r.found) {
+    @if (r.rate_limited) {
+      <div class="card ko" role="status">
+        <p class="verdict">Trop de numéros inexistants</p>
+        <p>Par sécurité, la vérification est suspendue quelques minutes pour cette connexion. Réessayez plus tard avec le numéro exact imprimé sur l'attestation.</p>
+      </div>
+    } @else if (!r.found) {
       <div class="card ko" role="status">
         <p class="verdict">✗ Attestation introuvable</p>
-        <p>Ce numéro ne correspond à aucune attestation délivrée via Makila. Vérifiez la saisie ou contactez l'établissement émetteur.</p>
+        <p>Ce numéro ne correspond à aucune attestation délivrée via Makila. Saisissez-le exactement comme imprimé (tirets compris) ou contactez l'établissement émetteur.</p>
       </div>
     } @else {
       <div class="card" [class.ok]="r.status !== 'revoked'" [class.ko]="r.status === 'revoked'" role="status">
@@ -47,7 +52,8 @@
             <dd>{{ r.blood_group }} · {{ r.confirmed ? 'confirmé (2 déterminations)' : 'provisoire (1 détermination)' }}</dd>
           }
           <dt>Titulaire</dt>
-          <dd>{{ r.holder }}@if (r.birth_year) { · né(e) en {{ r.birth_year }} }</dd>
+          <dd>{{ r.holder }}@if (r.birth_year) { · né(e) en {{ r.birth_year }} }
+            <small style="display:block;opacity:.7;font-size:.85em;margin-top:4px">Nom volontairement masqué : comparez avec la pièce d'identité de la personne.</small></dd>
           <dt>Délivrée par</dt>
           <dd>{{ r.org_name }}@if (r.org_city) {, {{ r.org_city }} }</dd>
           <dt>{{ r.kind === 'donation' ? 'Don du' : 'Le' }}</dt>

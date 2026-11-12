@@ -8,6 +8,7 @@ import { VERIFY_ENV } from '../../verify.env';
 /** Réponse publique de verify_certificate (identité masquée). */
 interface VerifyResult {
   found: boolean;
+  rate_limited?: boolean;
   kind?: 'group' | 'donation';
   code?: string;
   status?: 'valid' | 'revoked';
@@ -21,7 +22,19 @@ interface VerifyResult {
   birth_year?: string;
 }
 
-const CODE = /MKA-[A-Z0-9]{4}-[A-Z0-9]{4}|MKD-[A-Z0-9]{10}/;
+// Le numéro doit être EXACT : un caractère en plus ou en moins = introuvable.
+const CODE = /^(MKA-[A-Z0-9]{4}-[A-Z0-9]{4}|MKD-[A-Z0-9]{10})$/;
+
+/** Numéro saisi, ou lu dans un lien de vérification (…/verifier?c=…). */
+function normalize(raw: string): string {
+  let v = raw.trim();
+  try {
+    if (/^https?:\/\//i.test(v)) v = new URL(v).searchParams.get('c') ?? '';
+  } catch {
+    v = '';
+  }
+  return v.replace(/\s+/g, '').toUpperCase();
+}
 
 /**
  * Vérification publique d'une attestation Makila (QR code ou numéro).
@@ -104,7 +117,7 @@ export class Verify {
     if (!this.browser) return;
     this.error.set('');
     this.result.set(null);
-    const code = CODE.exec(this.code.trim().toUpperCase())?.[0];
+    const code = CODE.exec(normalize(this.code))?.[1];
     if (!code) {
       this.result.set({ found: false });
       return;
