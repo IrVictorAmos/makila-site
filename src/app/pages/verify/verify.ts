@@ -61,7 +61,24 @@ export class Verify {
   private readonly router = inject(Router);
   private readonly browser = isPlatformBrowser(inject(PLATFORM_ID));
 
-  protected readonly configured = !!(VERIFY_ENV.url && VERIFY_ENV.key);
+  /** Adresse et clé publiques : variables Vercel, sinon /app-config.json (publié par la CI de l'app). */
+  private env: { url: string; key: string } = { url: VERIFY_ENV.url, key: VERIFY_ENV.key };
+
+  private async config(): Promise<boolean> {
+    if (this.env.url && this.env.key) return true;
+    try {
+      const r = await fetch('/app-config.json', { cache: 'no-store' });
+      if (r.ok) {
+        const c = (await r.json()) as { supabaseUrl?: string; supabaseKey?: string };
+        if (c.supabaseUrl && c.supabaseKey && !c.supabaseKey.startsWith('sb_secret_')) {
+          this.env = { url: c.supabaseUrl.replace(/\/+$/, ''), key: c.supabaseKey };
+        }
+      }
+    } catch {
+      /* hors-ligne : message plus bas */
+    }
+    return !!(this.env.url && this.env.key);
+  }
   protected code = '';
   protected readonly loading = signal(false);
   protected readonly result = signal<VerifyResult | null>(null);
@@ -92,15 +109,16 @@ export class Verify {
       this.result.set({ found: false });
       return;
     }
-    if (!this.configured) {
+    this.loading.set(true);
+    if (!(await this.config())) {
+      this.loading.set(false);
       this.error.set("La vérification en ligne n'est pas encore activée sur ce site. Utilisez l'application Makila.");
       return;
     }
-    this.loading.set(true);
     try {
-      const res = await fetch(`${VERIFY_ENV.url}/rest/v1/rpc/verify_certificate`, {
+      const res = await fetch(`${this.env.url}/rest/v1/rpc/verify_certificate`, {
         method: 'POST',
-        headers: { apikey: VERIFY_ENV.key, 'Content-Type': 'application/json' },
+        headers: { apikey: this.env.key, 'Content-Type': 'application/json' },
         body: JSON.stringify({ p_code: code }),
       });
       if (!res.ok) throw new Error(String(res.status));
