@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "cd.makila.app",
+      "sha256_cert_fingerprints": [
+        "9F:C1:19:21:F4:1C:5B:F4:F6:64:AD:4B:03:F8:D3:C0:D8:DE:5D:F5:FE:AB:E9:8D:BB:E3:D3:CE:15:E7:09:D3"
+      ]
+    }
+  }
+]
